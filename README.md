@@ -2,6 +2,12 @@
 
 ## 1. Source code
 
+Download link：
+
+For java: https://github.com/NewbieOrange/SUSTech-SQL-Project2-Public
+
+For python: https://github.com/ziqin/SUSTech-CS307-Project2-Python
+
 ### Interface Specification
 
 We provide the interfaces code in two language (Java, Python). You can use either of them upon your preference. Notice
@@ -140,6 +146,6 @@ TO BE ADDED
 
 ### Project Timeline
 
-Code Submission Deadline: June 6th
+Code Submission Deadline: **June 6th**
 
-Presentation Time: June 15th by Tencent Meeting
+Presentation Time: **June 15th** by Tencent Meeting
