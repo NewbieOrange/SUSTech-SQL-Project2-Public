@@ -7,7 +7,7 @@ import java.util.List;
 
 @ParametersAreNonnullByDefault
 public interface InstructorService {
-    int addInstructor(int userId, String firstName, String lastName);
+    void addInstructor(int userId, String firstName, String lastName);
 
     /**
      *

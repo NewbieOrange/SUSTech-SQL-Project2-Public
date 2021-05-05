@@ -82,9 +82,8 @@ public interface StudentService {
      * @param firstName
      * @param lastName
      * @param enrolledDate
-     * @return the student id of new inserted line, if adding process is successful.
      */
-    int addStudent(int userId, int majorId, String firstName, String lastName, Date enrolledDate);
+    void addStudent(int userId, int majorId, String firstName, String lastName, Date enrolledDate);
 
     /**
      * Search available courses (' sections) for the specified student in the semester with extra conditions.
