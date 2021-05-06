@@ -4,7 +4,7 @@ import java.util.Objects;
 
 public class Course {
     public enum CourseGrading {
-        PASS_OF_FAIL, HUNDRED_MARK_SCORE
+        PASS_OR_FAIL, HUNDRED_MARK_SCORE
     }
 
     public String id;
