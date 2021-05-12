@@ -103,7 +103,7 @@ public interface StudentService {
      * @param searchClassLocations       search class locations. Matches *any* class in the section contains *any* location from the search class locations.
      * @param searchCourseType           search course type. See {@link cn.edu.sustech.cs307.service.StudentService.CourseType}
      * @param ignoreFull                 whether or not to ignore full course sections.
-     * @param ignoreConflict             whether or not to ignore time-conflicting course sections.
+     * @param ignoreConflict             whether or not to ignore course or time conflicting course sections.
      * @param ignorePassed               whether or not to ignore the student's passed courses.
      * @param ignoreMissingPrerequisites whether or not to ignore courses with missing prerequisites.
      * @param pageSize                   the page size, effectively `limit pageSize`.
