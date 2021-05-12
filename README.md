@@ -55,9 +55,19 @@ public class ReferenceStudentService implements StudentService {
 public class ReferenceServiceFactory extends ServiceFactory {
     public ReferenceServiceFactory() {
         registerService(StudentService.class, new ReferenceStudentService());
-        // TODO: register other service implementations here
+        registerService(CourseService.class, new ReferenceCourseService());
+        // registerService(<interface name>.class, new <your implementation>());
     }
 }
+```
+
+** After you have implemented your factory class, be sure to put your factory class name into the file `./config.properties`. So that we can find your implementation and test.**
+
+```
+serviceFactory=ReferenceServiceFactory            // Your factory class name here.
+jdbcUrl=jdbc:postgresql://localhost:5432/project2
+username=postgres
+password=postgres
 ```
 
 ### Additional requirements of interface
