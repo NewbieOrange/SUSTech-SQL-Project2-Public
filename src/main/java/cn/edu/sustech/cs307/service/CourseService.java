@@ -60,6 +60,8 @@ public interface CourseService {
 
     void removeCourseSectionClass(int classId);
 
+    List<Course> getAllCourses();
+
     List<CourseSection> getCourseSectionsInSemester(String courseId, int semesterId);
 
     Course getCourseBySection(int sectionId);
