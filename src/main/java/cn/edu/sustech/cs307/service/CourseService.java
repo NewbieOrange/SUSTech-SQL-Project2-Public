@@ -50,7 +50,7 @@ public interface CourseService {
      * @param location
      * @return the CourseSectionClass id of new inserted line.
      */
-    int addCourseSectionClass(int sectionId, int instructorId, DayOfWeek dayOfWeek,List<Short> weekList,
+    int addCourseSectionClass(int sectionId, int instructorId, DayOfWeek dayOfWeek, List<Short> weekList,
                               short classStart, short classEnd, String location);
 
 
