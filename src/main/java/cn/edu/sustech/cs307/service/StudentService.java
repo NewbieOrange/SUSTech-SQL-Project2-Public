@@ -88,6 +88,7 @@ public interface StudentService {
 
     /**
      * Search available courses (' sections) for the specified student in the semester with extra conditions.
+     * The result should be first sorted by course ID, and then sorted by course full name (course.name[section.name]).
      *
      * @param studentId
      * @param semesterId
@@ -104,6 +105,7 @@ public interface StudentService {
      * @param searchCourseType           search course type. See {@link cn.edu.sustech.cs307.service.StudentService.CourseType}
      * @param ignoreFull                 whether or not to ignore full course sections.
      * @param ignoreConflict             whether or not to ignore course or time conflicting course sections.
+     *                                   Note that a section is both course and time conflicting with itself.
      * @param ignorePassed               whether or not to ignore the student's passed courses.
      * @param ignoreMissingPrerequisites whether or not to ignore courses with missing prerequisites.
      * @param pageSize                   the page size, effectively `limit pageSize`.
