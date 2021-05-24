@@ -16,7 +16,7 @@ public class CourseSearchEntry {
      */
     public List<CourseSectionClass> sectionClasses;
     /**
-     * List all time conflicting courses' full name, sorted alphabetically.
+     * List all course or time conflicting courses' full name, sorted alphabetically.
      * Course full name: String.format("%s[%s]", course.name, section.name)
      *
      * Course conflict is when multiple sections belong to the same course.
