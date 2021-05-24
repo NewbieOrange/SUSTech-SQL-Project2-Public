@@ -54,26 +54,70 @@ public interface CourseService {
                               short classStart, short classEnd, String location);
 
 
+    /**
+     * To remove an entity from the system, related entities dependent on this entity (usually rows referencing the row to remove through foreign keys in a relational database)
+     * shall be removed together.
+     * More specifically, remove all related courseSection, all related CourseSectionClass and all related select course records
+     * when a course has been removed
+     * @param courseId
+     */
     void removeCourse(String courseId);
 
+    /**
+     *  To remove an entity from the system, related entities dependent on this entity (usually rows referencing the row to remove through foreign keys in a relational database)
+     *  shall be removed together.
+     *   More specifically, remove all related CourseSectionClass and all related select course records
+     *   when a courseSection has been removed
+     * @param sectionId
+     */
     void removeCourseSection(int sectionId);
 
+    /**
+     *  To remove an entity from the system, related entities dependent on this entity (usually rows referencing the row to remove through foreign keys in a relational database)
+     *  shall be removed together.
+     *  More specifically, only remove course section class
+     * @param classId
+     */
     void removeCourseSectionClass(int classId);
 
+    /**
+     * Return all satisfied CourseSections.
+     * We will compare the all other fields in CourseSection besides the id.
+     * @param courseId if the key is non-existent, please throw an EntityNotFoundException.
+     * @param semesterId
+     * @return
+     */
     List<Course> getAllCourses();
 
     List<CourseSection> getCourseSectionsInSemester(String courseId, int semesterId);
 
+    /**
+     * If there is no Course about specific id, throw EntityNotFoundException.
+     * @param sectionId if the key is non-existent, please throw an EntityNotFoundException.
+     * @return
+     */
     Course getCourseBySection(int sectionId);
 
     /**
      *
      * @param sectionId the id of {@code CourseSection}
+     *                  if the key is non-existent, please throw an EntityNotFoundException.
      * @return
      */
     List<CourseSectionClass> getCourseSectionClasses(int sectionId);
 
+    /**
+     *
+     * @param classId if the key is non-existent, please throw an EntityNotFoundException.
+     * @return
+     */
     CourseSection getCourseSectionByClass(int classId);
 
+    /**
+     *
+     * @param courseId  if the key is non-existent, please throw an EntityNotFoundException.
+     * @param semesterId if the key is non-existent, please throw an EntityNotFoundException.
+     * @return
+     */
     List<Student> getEnrolledStudentsInSemester(String courseId, int semesterId);
 }

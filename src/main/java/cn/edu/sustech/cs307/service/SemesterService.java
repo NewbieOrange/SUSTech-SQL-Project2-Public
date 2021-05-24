@@ -18,6 +18,13 @@ public interface SemesterService {
      */
     int addSemester(String name, Date begin, Date end);
 
+    /**
+     *To remove an entity from the system, related entities dependent on this entity
+     *  (usually rows referencing the row to remove through foreign keys in a relational database) shall be removed together.
+     *
+     * More specifically, when remove a semester, the related select course record should be removed accordingly.
+     * @param semesterId
+     */
     void removeSemester(int semesterId);
 
     List<Semester> getAllSemesters();

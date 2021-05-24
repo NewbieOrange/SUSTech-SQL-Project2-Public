@@ -12,7 +12,9 @@ import java.util.Objects;
 public class CourseSectionClass {
     public int id;// it is the id of course section class
     public Instructor instructor;
-    public DayOfWeek dayOfWeek;
+    public DayOfWeek dayOfWeek;// We ensure the test semesters begin with Monday.
+    // the given elements in weekList are sorted.
+    // CourseSectionClasses in same courseSection may have different weeklist.
     public List<Short> weekList;
     //the time quantum of start and end.
     //For example: classStart is 3 while classEnd is 4
