@@ -1,6 +1,7 @@
 package cn.edu.sustech.cs307.dto;
 
 import java.util.List;
+import java.util.Set;
 
 public class CourseSearchEntry {
     /**
@@ -14,7 +15,7 @@ public class CourseSearchEntry {
     /**
      * All classes of the section
      */
-    public List<CourseSectionClass> sectionClasses;
+    public Set<CourseSectionClass> sectionClasses;
     /**
      * List all course or time conflicting courses' full name, sorted alphabetically.
      * Course full name: String.format("%s[%s]", course.name, section.name)

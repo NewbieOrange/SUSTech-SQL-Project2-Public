@@ -162,8 +162,10 @@ public interface StudentService {
      * prerequisite fulfillment check to directly enroll a student in a course
      * and assign him/her a grade.
      *
-     *If the scoring scheme of a course is one type in pass-or-fail and hundredmark grade,
+     * If the scoring scheme of a course is one type in pass-or-fail and hundredmark grade,
      * your system should not accept the other type of grade.
+     *
+     * Course section's left capacity should remain unchanged after this method.
      *
      * @param studentId
      * @param sectionId We will get the sectionId of one section first
@@ -173,7 +175,7 @@ public interface StudentService {
     void addEnrolledCourseWithGrade(int studentId, int sectionId, @Nullable Grade grade);
 
     /**
-     * For teachers who can give student a grade
+     * For teachers to give students grade.
      *
      * @param studentId student id is in database
      * @param sectionId section id in test cases that have selected by the student
