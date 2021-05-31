@@ -7,6 +7,7 @@ import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.time.DayOfWeek;
 import java.util.List;
+import java.util.Set;
 
 @ParametersAreNonnullByDefault
 public interface CourseService {
@@ -50,7 +51,7 @@ public interface CourseService {
      * @param location
      * @return the CourseSectionClass id of new inserted line.
      */
-    int addCourseSectionClass(int sectionId, int instructorId, DayOfWeek dayOfWeek, List<Short> weekList,
+    int addCourseSectionClass(int sectionId, int instructorId, DayOfWeek dayOfWeek, Set<Short> weekList,
                               short classStart, short classEnd, String location);
 
 
