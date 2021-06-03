@@ -21,9 +21,9 @@ public class CourseSearchEntry {
     public Set<CourseSectionClass> sectionClasses;
 
     /**
-     * List all course or time conflicting courses' full name, sorted alphabetically.
+     * List all time conflicting courses' full name, sorted alphabetically.
      * Course full name: String.format("%s[%s]", course.name, section.name)
-     *
+     * <p>
      * Course conflict is when multiple sections belong to the same course.
      * Time conflict is when multiple sections have time-overlapping classes.
      * Note that a section is both course and time conflicting with itself!
@@ -39,8 +39,8 @@ public class CourseSearchEntry {
             return false;
         }
         CourseSearchEntry entry = (CourseSearchEntry) o;
-        return course.equals(entry.course) && section.equals(entry.section) && sectionClasses
-                .equals(entry.sectionClasses)
+        return course.equals(entry.course) && section.equals(entry.section)
+                && sectionClasses.equals(entry.sectionClasses)
                 && conflictCourseNames.equals(entry.conflictCourseNames);
     }
 

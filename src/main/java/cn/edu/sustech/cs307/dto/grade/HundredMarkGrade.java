@@ -1,9 +1,13 @@
 package cn.edu.sustech.cs307.dto.grade;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public final class HundredMarkGrade implements Grade {
     public final short mark;
 
-    public HundredMarkGrade(short mark) {
+    @JsonCreator
+    public HundredMarkGrade(@JsonProperty("mark") short mark) {
         this.mark = mark;
     }
 

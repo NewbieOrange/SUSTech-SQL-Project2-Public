@@ -1,5 +1,8 @@
 package cn.edu.sustech.cs307.dto.prerequisite;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.annotation.Nonnull;
 import java.util.Objects;
 
@@ -13,7 +16,8 @@ import java.util.Objects;
 public class CoursePrerequisite implements Prerequisite {
     public final String courseID;
 
-    public CoursePrerequisite(@Nonnull String courseID) {
+    @JsonCreator
+    public CoursePrerequisite(@JsonProperty("courseID") @Nonnull String courseID) {
         this.courseID = courseID;
     }
 

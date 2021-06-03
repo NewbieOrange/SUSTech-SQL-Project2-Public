@@ -1,5 +1,8 @@
 package cn.edu.sustech.cs307.dto.prerequisite;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.annotation.Nonnull;
 import java.util.List;
 import java.util.Objects;
@@ -13,7 +16,8 @@ import java.util.Objects;
 public class OrPrerequisite implements Prerequisite {
     public final List<Prerequisite> terms;
 
-    public OrPrerequisite(@Nonnull List<Prerequisite> terms) {
+    @JsonCreator
+    public OrPrerequisite(@JsonProperty("terms") @Nonnull List<Prerequisite> terms) {
         this.terms = terms;
     }
 
