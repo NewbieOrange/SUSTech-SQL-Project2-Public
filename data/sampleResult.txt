@@ -1,0 +1,25 @@
+Import departments
+Import majors
+Import users
+Import semesters
+Import courses
+Import sections
+Import classes
+Import major courses
+Import time usage: 5.28s
+Test search course 1: 500
+Test search course 1 time: 4.04s
+Test enroll course 1: 100
+Test enroll course 1 time: 0.16s
+Test drop enrolled course 1: 78
+Test drop enrolled course 1 time: 0.09s
+Import student courses
+Import student courses time: 0.94s
+Test drop course: 8822
+Test drop course time: 7.90s
+Test course table 2: 100
+Test course table 2 time: 0.21s
+Test search course 2: 500
+Test search course 2 time: 4.02s
+Test enroll course 2: 100
+Test enroll course 2 time: 0.13s

@@ -1,0 +1,1 @@
+[{"@type":"cn.edu.sustech.cs307.dto.Semester","id":1,"name":"2018-2019-1","begin":1535731200000,"end":1549123200000},{"@type":"cn.edu.sustech.cs307.dto.Semester","id":2,"name":"2018-2019-2","begin":1548950400000,"end":1562083200000},{"@type":"cn.edu.sustech.cs307.dto.Semester","id":3,"name":"2018-2019-3","begin":1561910400000,"end":1567440000000}]
