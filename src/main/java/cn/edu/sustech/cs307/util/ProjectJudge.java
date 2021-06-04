@@ -13,10 +13,7 @@ import java.io.IOException;
 import java.sql.Date;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public final class ProjectJudge {
@@ -74,7 +71,7 @@ public final class ProjectJudge {
             for (CourseSectionClass clazz : entry.sectionClasses) {
                 clazz.id = importer.mapClassId(clazz.id);
             }
-            entry.sectionClasses = new HashSet<>(entry.sectionClasses); // fix HashSet internal state
+            entry.sectionClasses = Set.copyOf(entry.sectionClasses); // fix HashSet internal state
         }
     }
 
@@ -179,7 +176,18 @@ public final class ProjectJudge {
                 || !departmentService.getAllDepartments().isEmpty()
                 || !semesterService.getAllSemesters().isEmpty()
                 || !userService.getAllUsers().isEmpty()) {
-            System.out.println("Database is not empty! Please truncate (cascade) all your tables.");
+            System.out.println("Database is not empty! Trying to truncate all your tables.");
+            try {
+                courseService.getAllCourses().parallelStream().forEach(it -> courseService.removeCourse(it.id));
+                departmentService.getAllDepartments().parallelStream()
+                        .forEach(it -> departmentService.removeDepartment(it.id));
+                semesterService.getAllSemesters().parallelStream().forEach(it -> semesterService.removeSemester(it.id));
+                userService.getAllUsers().parallelStream().forEach(it -> userService.removeUser(it.id));
+            } catch (Throwable t) {
+                System.out.println("Failed to truncate database.");
+                t.printStackTrace();
+                System.exit(1);
+            }
         }
 
         // 1. Import everything other than studentCourses.json
@@ -266,17 +274,6 @@ public final class ProjectJudge {
 
         // TODO: Multi-threaded benchmark
 
-        try {
-            System.out.println("Truncate database");
-            courseService.getAllCourses().parallelStream().forEach(it -> courseService.removeCourse(it.id));
-            departmentService.getAllDepartments().parallelStream()
-                    .forEach(it -> departmentService.removeDepartment(it.id));
-            semesterService.getAllSemesters().parallelStream().forEach(it -> semesterService.removeSemester(it.id));
-            userService.getAllUsers().parallelStream().forEach(it -> userService.removeUser(it.id));
-        } catch (Throwable t) {
-            System.out.println("Failed to truncate database.");
-            t.printStackTrace();
-        }
     }
 
     public static void main(String[] args) {
