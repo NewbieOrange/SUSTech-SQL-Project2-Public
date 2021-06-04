@@ -5,7 +5,10 @@ import cn.edu.sustech.cs307.dto.*;
 import cn.edu.sustech.cs307.dto.grade.Grade;
 import cn.edu.sustech.cs307.dto.prerequisite.Prerequisite;
 import cn.edu.sustech.cs307.factory.ServiceFactory;
+import cn.edu.sustech.cs307.service.CourseService;
+import cn.edu.sustech.cs307.service.DepartmentService;
 import cn.edu.sustech.cs307.service.StudentService;
+import cn.edu.sustech.cs307.service.UserService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.File;
@@ -27,7 +30,10 @@ public final class ProjectJudge {
     private static final File enrollCourse2Dir = new File("./data/enrollCourse2/");
 
     private final ServiceFactory serviceFactory = Config.getServiceFactory();
+    private final CourseService courseService = serviceFactory.createService(CourseService.class);
+    private final DepartmentService departmentService = serviceFactory.createService(DepartmentService.class);
     private final StudentService studentService = serviceFactory.createService(StudentService.class);
+    private final UserService userService = serviceFactory.createService(UserService.class);
     private final DataImporter importer = new DataImporter();
 
     public int testSearchCourses(File searchCourseDir) {
@@ -171,6 +177,12 @@ public final class ProjectJudge {
     }
 
     public void benchmark() {
+        if (!courseService.getAllCourses().isEmpty()
+                || !departmentService.getAllDepartments().isEmpty()
+                || !userService.getAllUsers().isEmpty()) {
+            System.out.println("Database is not empty! Please truncate (cascade) all your tables.");
+        }
+
         // 1. Import everything other than studentCourses.json
         List<Department> departments = readValueFromFile("departments.json", List.class);
         List<Major> majors = readValueFromFile("majors.json", List.class);
@@ -255,6 +267,16 @@ public final class ProjectJudge {
 
         // TODO: Multi-threaded benchmark
 
+        try {
+            System.out.println("Truncate database");
+            courseService.getAllCourses().parallelStream().forEach(it -> courseService.removeCourse(it.id));
+            departmentService.getAllDepartments().parallelStream()
+                    .forEach(it -> departmentService.removeDepartment(it.id));
+            userService.getAllUsers().parallelStream().forEach(it -> userService.removeUser(it.id));
+        } catch (Throwable t) {
+            System.out.println("Failed to truncate database.");
+            t.printStackTrace();
+        }
     }
 
     public static void main(String[] args) {
