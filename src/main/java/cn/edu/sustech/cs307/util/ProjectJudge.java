@@ -147,11 +147,11 @@ public final class ProjectJudge {
 
     public int testDropCourses(Map<String, Map<String, Grade>> studentCourses) {
         AtomicInteger passCount = new AtomicInteger();
-        studentCourses.forEach((studentId, grades) -> {
-            int student = Integer.parseInt(studentId);
-            grades.forEach((sectionId, grade) -> {
-                if (grade != null) {
-                    int section = importer.mapSectionId(Integer.parseInt(sectionId));
+        studentCourses.entrySet().parallelStream().forEach(grades -> {
+            int student = Integer.parseInt(grades.getKey());
+            grades.getValue().entrySet().parallelStream().forEach(it -> {
+                if (it.getValue() != null) {
+                    int section = importer.mapSectionId(Integer.parseInt(it.getKey()));
                     try {
                         studentService.dropCourse(student, section);
                     } catch (IllegalStateException e) {
