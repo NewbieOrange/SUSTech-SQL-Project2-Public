@@ -1,10 +1,3 @@
-# Reference implementation result / performance
-# Testing environment:
-# Postgresql 13.3-2 for Windows
-# Windows 10 x64 20H2
-# Intel Core i7-8700K @ 5GHz
-# 2x 8GB DDR4 @ 4266MHz
-# Intel SSD 750 1.2T
 Import departments
 Import majors
 Import users
@@ -13,20 +6,20 @@ Import courses
 Import sections
 Import classes
 Import major courses
-Import time usage: 2.03s
+Import time usage: 4.76s
 Test search course 1: 500
-Test search course 1 time: 1.31s
+Test search course 1 time: 2.46s
 Test enroll course 1: 1000
-Test enroll course 1 time: 0.29s
-Test drop enrolled course 1: 808
-Test drop enrolled course 1 time: 0.16s
+Test enroll course 1 time: 1.66s
+Test drop enrolled course 1: 823
+Test drop enrolled course 1 time: 0.97s
 Import student courses
-Import student courses time: 2.61s
-Test drop course: 88649
-Test drop course time: 1.17s
+Import student courses time: 7.75s
+Test drop course: 88314
+Test drop course time: 6.20s
 Test course table 2: 1000
-Test course table 2 time: 0.58s
+Test course table 2 time: 2.05s
 Test search course 2: 500
-Test search course 2 time: 1.33s
+Test search course 2 time: 2.24s
 Test enroll course 2: 1000
-Test enroll course 2 time: 0.25s
+Test enroll course 2 time: 1.34s
