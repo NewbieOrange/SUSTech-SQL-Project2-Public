@@ -51,15 +51,16 @@ public final class DataImporter {
 
     public void importCourseSection(Map<String, Map<String, List<CourseSection>>> sections) {
         CourseService courseService = serviceFactory.createService(CourseService.class);
-        for (var courseEntry : sections.entrySet()) {
-            for (var semesterEntry : courseEntry.getValue().entrySet()) {
-                for (var section : semesterEntry.getValue()) {
-                    sectionIdMap.put(section.id, courseService.addCourseSection(courseEntry.getKey(),
-                            mapSemesterId(Integer.parseInt(semesterEntry.getKey())),
-                            section.name, section.totalCapacity));
-                }
-            }
-        }
+        sections.entrySet().parallelStream().forEach(courses -> {
+            String courseId = courses.getKey();
+            courses.getValue().entrySet().parallelStream().forEach(semester -> {
+                int semesterId = mapSemesterId(Integer.parseInt(semester.getKey()));
+                semester.getValue().parallelStream().forEach(section ->
+                        sectionIdMap.put(section.id, courseService.addCourseSection(courseId, semesterId,
+                                section.name, section.totalCapacity))
+                );
+            });
+        });
     }
 
     public void importCourseSectionClasses(Map<String, List<CourseSectionClass>> classes) {
