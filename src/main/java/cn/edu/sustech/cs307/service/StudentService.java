@@ -94,6 +94,7 @@ public interface StudentService {
     /**
      * Search available courses (' sections) for the specified student in the semester with extra conditions.
      * The result should be first sorted by course ID, and then sorted by course full name (course.name[section.name]).
+     * Ignore all course sections that have no sub-classes.
      *
      * @param studentId
      * @param semesterId
