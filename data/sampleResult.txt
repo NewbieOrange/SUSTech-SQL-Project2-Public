@@ -13,20 +13,20 @@ Import courses
 Import sections
 Import classes
 Import major courses
-Import time usage: 2.22s
+Import time usage: 2.23s
 Test search course 1: 1000
-Test search course 1 time: 3.55s
+Test search course 1 time: 3.32s
 Test enroll course 1: 1000
 Test enroll course 1 time: 0.28s
-Test drop enrolled course 1: 822
-Test drop enrolled course 1 time: 0.16s
+Test drop enrolled course 1: 800
+Test drop enrolled course 1 time: 0.15s
 Import student courses
-Import student courses time: 2.50s
-Test drop course: 88260
-Test drop course time: 1.20s
+Import student courses time: 2.70s
+Test drop course: 87946
+Test drop course time: 1.16s
 Test course table 2: 1000
-Test course table 2 time: 0.61s
+Test course table 2 time: 0.67s
 Test search course 2: 1000
-Test search course 2 time: 3.03s
+Test search course 2 time: 3.36s
 Test enroll course 2: 1000
-Test enroll course 2 time: 0.25s
+Test enroll course 2 time: 0.26s
