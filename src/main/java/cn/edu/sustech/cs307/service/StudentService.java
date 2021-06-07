@@ -217,7 +217,7 @@ public interface StudentService {
      *
      * @param studentId
      * @param courseId
-     * @return true if the student has any course score record that is passed (>=60 or PASS), which means he has passed the course.
+     * @return true if the student has passed the course's prerequisites (>=60 or PASS).
      */
     boolean passedPrerequisitesForCourse(int studentId, String courseId);
 
