@@ -7,7 +7,7 @@ assignees: ''
 
 ---
 
-**Please make sure the testing code and data at the latest commit**
+**Please make sure the testing code and data are at the latest commit**
 
 **Describe the bug**
 A clear and concise description of what the bug is.
