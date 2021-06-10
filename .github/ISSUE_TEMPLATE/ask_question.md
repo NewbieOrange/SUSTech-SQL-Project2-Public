@@ -1,5 +1,5 @@
 ---
-name: Ask Question
+name: Ask question
 about: Create a question about your issue
 title: ''
 labels: Question
