@@ -269,10 +269,7 @@ public final class ProjectJudge {
         // 9. Test enrollCourse2
         EnrollEvalResult enrollCourse2 = testEnrollCourses(enrollCourse2Dir);
         System.out.println("Test enroll course 2: " + enrollCourse2.passCount.get());
-        System.out.printf("Test enroll course 2 time: %.2fs\n", courseTables2.elapsedTimeNs.get() / 1000000000.0);
-
-        // TODO: Multi-threaded benchmark
-
+        System.out.printf("Test enroll course 2 time: %.2fs\n", enrollCourse2.elapsedTimeNs.get() / 1000000000.0);
     }
 
     public static void main(String[] args) {
